@@ -14,14 +14,14 @@ function App() {
   const toggleMode =() =>{
     if(mode === 'light'){
       setMode('dark');
-      document.body.style.backgroundColor = 'blue';
+      document.body.style.backgroundColor = '#323ca8';
       showAlert("Dark Mode Has Been Set", "success");
       document.title='TextUtills - Dark Mode';
     }
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
-      showAlert("light mode has been set", "danger");
+      showAlert("light mode has been set", "success");
       document.title='TextUtills - Light Mode';
     }
 
@@ -59,8 +59,9 @@ function App() {
             <Route path="/">
               <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />
             </Route> */}
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - word & character counter, remove extra spaces" mode={mode} />} />
+            {/* <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} /> */}
         </Routes>
       </div>
     </Router>
